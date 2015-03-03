@@ -1,0 +1,22 @@
+---
+title: "Dunning-Stancik DV _RProject3"
+output: html_document
+---
+
+
+###Third R Project :D
+
+Link to repo:
+<https://github.com/sarstanc/DV_RProject3>
+
+###Import data and check data frames
+```{r, warning=FALSE}
+source("../02 Data Wrangling/wrangling.R", echo=TRUE)
+```
+
+###Graph data
+```{r, warning=FALSE}
+source("../03 Visualization/images.R", echo=TRUE)
+```
+
+###Hooray!
