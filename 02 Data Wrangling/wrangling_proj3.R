@@ -12,6 +12,10 @@ df <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?que
 dfPERCENT<- df %>% group_by(CRIME_TYPE) %>% summarise(Percentage = (n()/2833)*100, n = n()) %>% arrange(desc(n)) %>% tbl_df()
 dfPERCENT
 
-# AVERAGE COMMUTE TIMES ORDERED BY ZIPCODE
+# HIGHEST TO LOWEST POPULATION BY ZIPCODE
+
+# COMMUTE TIMES BY POPULATION
+
+
 
 

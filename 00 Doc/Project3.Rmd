@@ -1,5 +1,5 @@
 ---
-title: "Dunning-Stancik DV _RProject3"
+title: "Dunning-Stancik DV_RProject3"
 output: html_document
 ---
 
@@ -9,14 +9,20 @@ output: html_document
 Link to repo:
 <https://github.com/sarstanc/DV_RProject3>
 
-###Import data and check data frames
+###Sample of COMMUTE_TIMES data
 ```{r, warning=FALSE}
-source("../02 Data Wrangling/wrangling.R", echo=TRUE)
+source("../01 Data/sample_commute.R", echo=TRUE)
 ```
 
-###Graph data
+###Sample of POPULATION data
 ```{r, warning=FALSE}
-source("../03 Visualization/images.R", echo=TRUE)
+source("../01 Data/sample_population.R", echo=TRUE)
 ```
+
+###Import data and check data frames
+
+
+###Graph data
+
 
 ###Hooray!
