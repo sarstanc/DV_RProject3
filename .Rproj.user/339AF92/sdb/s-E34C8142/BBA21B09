@@ -1,0 +1,16 @@
+{
+    "contents" : "#import libraries\nlibrary(\"RCurl\")\nlibrary(\"reshape2\")\nlibrary(\"ggplot2\")\nrequire(tidyr)\nrequire(dplyr)\n#import data\n\ndfCOMMUTE <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query=\"select * from COMMUTE_TIMES\"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521:ORCL', USER='C##cs329e_sks2435', PASS='orcl_sks2435', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE)))\ndfPOPULATION <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query=\"select * from POPULATION\"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521:ORCL', USER='C##cs329e_sks2435', PASS='orcl_sks2435', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE)))\n\n# SHORTEST COMMUTE TIMES BY ZIPCODE\ndfTIME <- dfCOMMUTE %>% group_by(COMMUTE_TIME_MINS_EST) %>% summarise(n = n()) %>% arrange(desc(n)) %>% tbl_df()\ndfTIME\n\n# HIGHEST TO LOWEST POPULATION BY ZIPCODE\ndfCENSUS <- dfPOPULATION %>% group_by(COMMUTE_TIME_MINS_EST) %>% summarise(n = n()) %>% arrange(desc(n)) %>% tbl_df()\ndfCENSUS\n\n# COMMUTE TIMES BY POPULATION\ndfTRAFFIC <- dfPOPULATION %>% group_by(COMMUTE_TIME_MINS_EST) %>% summarise(n = n()) %>% arrange(desc(n)) %>% tbl_df()\ndfTRAFFIC\n\n\n\n",
+    "created" : 1425467005876.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "403631038",
+    "id" : "BBA21B09",
+    "lastKnownWriteTime" : 1425475366,
+    "path" : "~/Documents/Development/DataVisualization/DV_RProject3/02 Data Wrangling/wrangling_proj3.R",
+    "project_path" : "02 Data Wrangling/wrangling_proj3.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

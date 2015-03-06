@@ -1,0 +1,16 @@
+{
+    "contents" : "#import libraries\nlibrary(\"RCurl\")\nlibrary(\"reshape2\")\nlibrary(\"ggplot2\")\nrequire(tidyr)\nrequire(dplyr)\n#import data\n\ndf <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.152.144.84:5001/rest/native/?query=\"select * from apd_incidents\"'), httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521:ORCL', USER='C##cs329e_sks2435', PASS='orcl_sks2435', MODE='native_mode', MODEL='model', returnFor = 'R', returnDimensions = 'False'), verbose = TRUE), 1, 2^31-1))))\n\n# MOST POPULAR CRIMES BY PERCENTAGE\ndfPERCENT<- df %>% group_by(CRIME_TYPE) %>% summarise(Percentage = (n()/2833)*100, n = n()) %>% arrange(desc(n)) %>% tbl_df()\ndfPERCENT\n# AVERAGE TIME FOR CRIME TYPE ORDERED BY MOST FREQUENTlY OCCURING\ndfTIME <- df %>% group_by(CRIME_TYPE) %>% summarise(Time = mean(TIME), n = n()) %>% arrange(desc(TIME)) %>% tbl_df()\ndfTIME\n# MOST POPULAR DAY TO COMMIT CRIMES\ndfDAY <- df %>% group_by(DATE_I) %>% summarise(n = n()) %>% arrange(desc(n)) %>% tbl_df()\ndfDAY\n\n",
+    "created" : 1425471219423.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2195456989",
+    "id" : "BD9D4DC3",
+    "lastKnownWriteTime" : 1425468583,
+    "path" : "~/Documents/Development/DataVisualization/DV_RProject2/02 Data Wrangling/wrangling.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

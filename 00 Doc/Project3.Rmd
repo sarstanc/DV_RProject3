@@ -20,7 +20,9 @@ source("../01 Data/sample_population.R", echo=TRUE)
 ```
 
 ###Import data and check data frames
-
+```{r, warning=FALSE}
+source("../02 Data Wrangling/wrangling_proj3.R", echo=TRUE)
+```
 
 ###Graph data
 
