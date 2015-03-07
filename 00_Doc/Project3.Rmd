@@ -11,20 +11,27 @@ Link to repo:
 
 ###Sample of COMMUTE_TIMES data
 ```{r, warning=FALSE}
-source("../01 Data/sample_commute.R", echo=TRUE)
+source("../01_Data/sample_commute.R", echo=TRUE)
 ```
 
 ###Sample of POPULATION data
 ```{r, warning=FALSE}
-source("../01 Data/sample_population.R", echo=TRUE)
+source("../01_Data/sample_population.R", echo=TRUE)
 ```
 
 ###Import data and check data frames
 ```{r, warning=FALSE}
-source("../02 Data Wrangling/wrangling_proj3.R", echo=TRUE)
+source("../02_Data_Wrangling/wrangling_proj3.R", echo=TRUE)
 ```
 
 ###Graph data
+```{r, warning=FALSE}
+source("../03_Visualizations/visualizations_proj3.R", echo=TRUE)
+```
 
+###PNGs
+```{r, warning=FALSE}
+source("../03_Visualizations/png_proj3.R", echo=TRUE)
+```
 
 ###Hooray!

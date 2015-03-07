@@ -17,14 +17,13 @@ dfINNER
 
 # COMMUTE TIMES (HIGH TO LOW) BY POPULATION
 # outer join (right_join)
-dfRIGHT <- right_join(dfCOMMUTE, dfPOPULATION, by="ZIP_CODE") %>% group_by(CENSUS_POPULATION) %>% summarise(TIME = max(COMMUTE_TIME_MINS_EST), n = n()) %>% tbl_df()
-dfRIGHT
+# dfRIGHT <- right_join(dfCOMMUTE, dfPOPULATION, by="ZIP_CODE") %>% group_by(CENSUS_POPULATION) %>% summarise(TIME = max(COMMUTE_TIME_MINS_EST), n = n()) %>% tbl_df()
+# dfRIGHT
 
 # ZIPCODES WITH THE HIGHEST POPULATION
 # full join - retain all values
 dfJOIN <- full_join(dfCOMMUTE, dfPOPULATION, by="ZIP_CODE") %>% group_by(ZIP_CODE) %>% summarise(POPULATION = max(CENSUS_POPULATION), n = n()) %>% arrange(desc(POPULATION)) %>% tbl_df()
 dfJOIN
-
 
 
 
