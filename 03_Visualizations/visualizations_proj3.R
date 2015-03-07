@@ -1,5 +1,5 @@
 # population by zipcode
-pop <- ggplot(dfJOIN, aes(x=ZIP_CODE))
+pop <- ggplot(dfJOIN, aes(x=ZIP_CODE, y=CENSUS_POPULATION))
 pop <- pop + geom_point() + ggtitle("Population by Zipcode")
 pop
 

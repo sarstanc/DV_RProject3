@@ -4,7 +4,7 @@ output: html_document
 ---
 
 
-###Third R Project :D
+###Third R Project
 
 Link to repo:
 <https://github.com/sarstanc/DV_RProject3>
@@ -31,7 +31,7 @@ source("../03_Visualizations/visualizations_proj3.R", echo=TRUE)
 
 ###PNGs
 ```{r, warning=FALSE}
-source("../03_Visualizations/png_proj3.R", echo=TRUE)
+source("../01_Data/png_proj3.R", echo=TRUE)
 ```
 
 ###Hooray!

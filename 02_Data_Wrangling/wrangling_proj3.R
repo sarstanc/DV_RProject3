@@ -12,18 +12,24 @@ dfPOPULATION <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/n
 
 # ERROR IN COMMUTE TIME ESTIMATES FOR POPULATION (LOW TO HIGH)
 # inner join
-dfINNER <- inner_join(dfCOMMUTE, dfPOPULATION, by="ZIP_CODE") %>% group_by(MARGIN_OF_ERROR) %>% summarise(POPULATION = max(CENSUS_POPULATION), n = n()) %>% arrange(POPULATION) %>% tbl_df()
+dfINNER <- inner_join(dfCOMMUTE, dfPOPULATION, by="ZIP_CODE") %>% tbl_df()
 dfINNER
+dfERROR <- dfINNER %>% group_by(MARGIN_OF_ERROR) %>% summarise(POPULATION = max(CENSUS_POPULATION), n = n()) %>% arrange(POPULATION) %>% tbl_df()
+dfERROR
 
 # COMMUTE TIMES (HIGH TO LOW) BY POPULATION
 # outer join (right_join)
-# dfRIGHT <- right_join(dfCOMMUTE, dfPOPULATION, by="ZIP_CODE") %>% group_by(CENSUS_POPULATION) %>% summarise(TIME = max(COMMUTE_TIME_MINS_EST), n = n()) %>% tbl_df()
-# dfRIGHT
+dfRIGHT <- right_join(dfCOMMUTE, dfPOPULATION, by="ZIP_CODE") %>% tbl_df()
+dfRIGHT
+dfTIME <- dfRIGHT %>% group_by(CENSUS_POPULATION) %>% summarise(TIME = mean(COMMUTE_TIME_MINS_EST), n = n()) %>% tbl_df()
+dfTIME
 
 # ZIPCODES WITH THE HIGHEST POPULATION
 # full join - retain all values
-dfJOIN <- full_join(dfCOMMUTE, dfPOPULATION, by="ZIP_CODE") %>% group_by(ZIP_CODE) %>% summarise(POPULATION = max(CENSUS_POPULATION), n = n()) %>% arrange(desc(POPULATION)) %>% tbl_df()
+dfJOIN <- full_join(dfCOMMUTE, dfPOPULATION, by="ZIP_CODE") %>% tbl_df()
 dfJOIN
+dfZIPCODES <- dfJOIN %>% group_by(ZIP_CODE) %>% summarise(POPULATION = max(CENSUS_POPULATION), n = n()) %>% arrange(desc(POPULATION)) %>% tbl_df()
+dfZIPCODES
 
 
 
